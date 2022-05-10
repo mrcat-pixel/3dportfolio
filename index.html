@@ -6,8 +6,28 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+    <div id="sidebar">
+        <div class="sidebar-element">
+            <img src="texture/logo.png" id="logo" alt="logo">
+        </div>
+        <div class="sidebar-element">
+            <p class="filter-button" id="bt0">> ART</p>
+            <p class="filter-button" id="bt1">> CODE</p>
+            <p class="filter-button" id="bt2">> DESIGN</p>
+            <p class="filter-button" id="bt3">> MUSIC</p>
+            <p class="filter-button" id="bt4">> 3D</p>
+            <p class="filter-button" id="bt5">> GAMES</p>
+        </div>
+        <div class="sidebar-element">
+            <p class="filter-button" id="bt6">about+contact</p>
+        </div>
+    </div>
     <div id="viewport-contain"></div>
-    <script src="https://threejs.org/build/three.js"></script>
-    <script src="script/3dspace.js"></script>
+
+    <script src="https://unpkg.com/three@0.140.2/build/three.js"></script>
+    <script src="script/window.curDot.min.js"></script>
+
+    <script type="module" src="script/3dspace.js"></script>
+    <script src="script/2dui.js"></script>
 </body>
 </html>

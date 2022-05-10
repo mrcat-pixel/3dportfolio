@@ -1,3 +1,44 @@
+@font-face {
+    font-family: 'texfont';
+    src: url('font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background: black;
+}
+
 body {
     margin: 0;
+    font-family: 'texfont', sans-serif;
+    font-size: 40px;
+    cursor: none;
+    user-select: none;
+}
+
+.filter-button {
+    margin: 0;
+}
+
+#sidebar {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    text-align: left;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 100%;
+}
+
+.sidebar-element {
+    margin: 30px;
 }
