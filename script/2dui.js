@@ -36,7 +36,6 @@ document.getElementById('bt6').addEventListener('click', () => {
 function animate() {
     requestAnimationFrame(animate);
     animate_filter_buttons();
-    animate_hamburger_menu_buttons();
 }
 
 for (let i = 0; i < 7; i++) {

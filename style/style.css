@@ -6,7 +6,7 @@
 }
 
 html {
-    background: black;
+    background: radial-gradient(black 25%, #131021 100%);
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     height: 100%;
     text-align: left;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(90deg, rgba(19,16,33,1) 0%, rgba(16,29,33,0) 100%);
     color: white;
 
     display: flex;

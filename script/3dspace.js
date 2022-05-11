@@ -2,7 +2,7 @@
 
 const renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000, 1);
+renderer.setClearColor(0x000000, 0);
 const renderer_element = renderer.domElement;
 document.getElementById("viewport-contain").appendChild(renderer_element);
 
@@ -13,37 +13,12 @@ camera.position.set(0, 0, 50);
 let camera_target = new THREE.Vector3(0, 0, 50);
 scene.add(camera);
 
-class Pane {
-    constructor(scene, title, desc, x, y) {
-        const canvas = document.createElement( "canvas" );
-        let height = 800;
-        let width = 0.75*height;
-
-        canvas.width = width;
-        canvas.height = height;
-
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.fillStyle = "black";
-        ctx.font = 0.128 * height + "px texfont";
-        ctx.fillText(title, 0.066*width, 0.75*height);
-
-        ctx.font = 0.032 * height + "px texfont";
-        for ( let i = 0; i < desc.length; i ++ )
-            ctx.fillText( desc[ i ], 0.066*width, 0.04 * height * i + 0.85*height );
-
-        let texture = new THREE.CanvasTexture(canvas);
-
-        this.backpane = new THREE.Mesh(
-            new THREE.PlaneGeometry(15, 20),
-            new THREE.MeshBasicMaterial({map: texture})
-        );
-        this.backpane.position.set(x, y, 0);
-        scene.add(this.backpane);
-    }
-}
+let circleArray = [
+    new Circle(scene, -50, 200, 0x08302B, 0, 0.0005, 100),
+    new Circle(scene, -100, 600, 0x4e284b, 0, -0.005, 50),
+    new Circle(scene, -300, 1000, 0x2D1A07, 5, 0.015, 200),
+    new Circle(scene, -20, 100, 0x352651, 5, -0.02, 20)
+    ]
 
 let pane1 = new Pane(scene,
     'math4',
@@ -74,7 +49,6 @@ let pane5 = new Pane(scene,
     ['perduo', 'perduo', 'perduo'],
     -34, 0
 );
-
 
 // code
 
@@ -126,11 +100,16 @@ function clampCamera() {
     camera.rotation.y = clamp(camera.rotation.y, 0, 45);
 }
 
+function animateCircles() {
+    for (const a of circleArray) a.animate();
+}
+
 function render() {
     requestAnimationFrame(render);
     renderer.render(scene, camera);
     easeCamera();
     rotateCamera();
     clampCamera();
+    animateCircles();
 }
 render();
