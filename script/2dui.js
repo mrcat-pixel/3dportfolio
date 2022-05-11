@@ -14,8 +14,13 @@ const cursor = curDot({
 function setHoverButton(num) { hover_button = num; }
 function setActiveButton(num) {
     active_button = active_button === num? -1 : num;
-    for (let i = 0; i < 7; i++) {
-        document.getElementById('bt' + i).style.color = i === active_button? 'red' : 'white';
+    for (let i = 0; i < 6; i++) {
+        let prefix = '>';
+        if (active_button !== -1) {
+            prefix = active_button === i? '+' : '-';
+        }
+        document.getElementById('bt' + i).innerText =
+            prefix + document.getElementById('bt' + i).innerText.slice(1);
     }
 }
 
@@ -30,13 +35,8 @@ function animate_filter_buttons() {
 }
 
 document.getElementById('bt6').addEventListener('click', () => {
-    document.getElementById('viewport-contain').style.filter = "blur(20px)";
+    cluster.array[0].position.z = 50;
 })
-
-function animate() {
-    requestAnimationFrame(animate);
-    animate_filter_buttons();
-}
 
 for (let i = 0; i < 7; i++) {
     let element = document.getElementById('bt' + i);
@@ -44,5 +44,3 @@ for (let i = 0; i < 7; i++) {
     element.addEventListener('mouseleave', () => setHoverButton(-1));
     element.addEventListener('click', () => setActiveButton(i));
 }
-
-animate();

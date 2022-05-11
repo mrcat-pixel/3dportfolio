@@ -9,7 +9,7 @@ document.getElementById("viewport-contain").appendChild(renderer_element);
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight);
-camera.position.set(0, 0, 0);
+camera.position.set(0, 0, 50);
 let camera_target = new THREE.Vector3(0, 0, 50);
 scene.add(camera);
 
@@ -23,36 +23,7 @@ let circleArray = [
 await document.fonts.load(0.128 * pane_resolution + 'px texfont');
 await document.fonts.load(0.032 * pane_resolution + 'px texfont');
 
-let pane1 = new Pane(scene,
-    'math4',
-    ['Function interpolation via', 'the Lagrange polynomial in Python.'],
-    0, 0
-);
-
-let pane2 = new Pane(scene,
-    'duo',
-    ['perduo', 'perduo', 'perduo'],
-    17, 0
-);
-
-let pane3 = new Pane(scene,
-    'duo',
-    ['perduo', 'perduo', 'perduo'],
-    34, 0
-);
-
-let pane4 = new Pane(scene,
-    'duo',
-    ['perduo', 'perduo', 'perduo'],
-    -17, 0
-);
-
-let pane5 = new Pane(scene,
-    'duo',
-    ['perduo', 'perduo', 'perduo'],
-    -34, 0
-);
-
+const cluster = new PaneCluster(scene);
 new Starfield(scene);
 
 // code
@@ -116,5 +87,11 @@ function render() {
     rotateCamera();
     clampCamera();
     animateCircles();
+
+    cluster.animate()
+
+    animate_filter_buttons();
+    document.getElementById("sidebar").style.opacity =
+        ((camera.position.z * 0.1) - 1.4).toString();
 }
 render();

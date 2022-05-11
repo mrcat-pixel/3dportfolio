@@ -10,7 +10,7 @@ class Pane {
     }
 
     drawBg() {
-        this.ctx.fillStyle = "white";
+        this.ctx.fillStyle = "#B7ABCE";
         this.ctx.fillRect(0, 0, this.width, this.height);
     }
 
@@ -34,18 +34,22 @@ class Pane {
             );
     }
 
-    createMesh(scene, x, y) {
+    createMesh(scene, x, y, z) {
         this.texture = new THREE.CanvasTexture(this.canvas);
 
         this.backpane = new THREE.Mesh(
             new THREE.PlaneGeometry(15, 20),
             new THREE.MeshBasicMaterial( { map: this.texture } )
         );
-        this.backpane.position.set(x, y, 0);
+        this.backpane.position.set(x, y, z);
         scene.add(this.backpane);
     }
 
-    constructor(scene, title, desc, x, y) {
+    animate() {
+        this.backpane.position.z += (this.targetz - this.backpane.position.z) / 7;
+    }
+
+    constructor(scene, title, desc, x, y, z) {
         this.height = pane_resolution;
         this.width = 0.75 * this.height;
 
@@ -57,6 +61,7 @@ class Pane {
         this.drawTitle();
         this.drawDesc();
 
-        this.createMesh(scene, x, y);
+        this.createMesh(scene, x, y, z);
+        this.targetz = z;
     }
 }
