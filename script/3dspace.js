@@ -9,7 +9,7 @@ document.getElementById("viewport-contain").appendChild(renderer_element);
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight);
-camera.position.set(0, 0, 50);
+camera.position.set(0, 0, 0);
 let camera_target = new THREE.Vector3(0, 0, 50);
 scene.add(camera);
 
@@ -19,6 +19,9 @@ let circleArray = [
     new Circle(scene, -300, 1000, 0x2D1A07, 5, 0.015, 200),
     new Circle(scene, -20, 100, 0x352651, 5, -0.02, 20)
     ]
+
+await document.fonts.load(0.128 * pane_resolution + 'px texfont');
+await document.fonts.load(0.032 * pane_resolution + 'px texfont');
 
 let pane1 = new Pane(scene,
     'math4',
@@ -49,6 +52,8 @@ let pane5 = new Pane(scene,
     ['perduo', 'perduo', 'perduo'],
     -34, 0
 );
+
+new Starfield(scene);
 
 // code
 
