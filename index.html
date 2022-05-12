@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style/font.css">
 </head>
 <body>
-    <div id="sidebar">
-        <div class="sidebar-element">
-            <img src="texture/logo.png" id="logo" alt="logo">
+    <div id="2d-ui-contain">
+        <div class="sidebar-element" id="logo">
+            <img src="texture/logo.png" alt="logo" id="logo-img">
         </div>
-        <div class="sidebar-element">
+        <div class="sidebar-element" id="control-panel">
             <p class="filter-button" id="bt0">> ART</p>
             <p class="filter-button" id="bt1">> CODE</p>
             <p class="filter-button" id="bt2">> DESIGN</p>
@@ -19,13 +19,13 @@
             <p class="filter-button" id="bt4">> 3D</p>
             <p class="filter-button" id="bt5">> GAMES</p>
         </div>
-        <div class="sidebar-element">
-            <p class="filter-button" id="bt6">about+contact</p>
-        </div>
+        <p class="filter-button sidebar-element" id="about">about+contact <</p>
+        <p class="filter-button sidebar-element" id="tip">click on a pane to see more</p>
     </div>
+
     <div id="viewport-contain"></div>
 
-    <script src="https://unpkg.com/three@0.140.2/build/three.js"></script>
+    <script src="script/three.js"></script>
     <script src="script/window.curDot.min.js"></script>
 
     <script src="script/pane.js"></script>

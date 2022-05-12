@@ -13,6 +13,15 @@ camera.position.set(0, 0, 50);
 let camera_target = new THREE.Vector3(0, 0, 50);
 scene.add(camera);
 
+document.getElementById('bt0').addEventListener('click', () => cameraShowSection(-10));
+document.getElementById('bt1').addEventListener('click', () => cameraShowSection(63 ));
+document.getElementById('bt2').addEventListener('click', () => cameraShowSection(102));
+document.getElementById('bt3').addEventListener('click', () => cameraShowSection(124));
+document.getElementById('bt4').addEventListener('click', () => cameraShowSection(163));
+document.getElementById('bt5').addEventListener('click', () => cameraShowSection(185));
+
+function cameraShowSection(x) { camera_target.set(x, -2, 50); }
+
 let circleArray = [
     new Circle(scene, -50, 200, 0x08302B, 0, 0.0005, 100),
     new Circle(scene, -100, 600, 0x4e284b, 0, -0.005, 50),
@@ -63,14 +72,14 @@ function easeCamera() {
 }
 
 function rotateCamera() {
-    camera.rotation.y = (camera.position.z - 20) * 0.01;
+    camera.rotation.y = (camera.position.z - 20) * 0.005;
 }
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
 function clampCamera() {
-    camera_target.x = clamp(camera_target.x, -50, 50);
-    camera_target.y = clamp(camera_target.y, -50, 50);
+    camera_target.x = clamp(camera_target.x, -50, 180);
+    camera_target.y = clamp(camera_target.y, -40, 40);
     camera_target.z = clamp(camera_target.z, 15, 75);
 
     camera.rotation.y = clamp(camera.rotation.y, 0, 45);
@@ -89,7 +98,8 @@ function render() {
     animateCircles();
 
     animate_filter_buttons();
-    document.getElementById("sidebar").style.opacity =
+    document.getElementById("2d-ui-contain").style.opacity =
         ((camera.position.z * 0.1) - 1.4).toString();
 }
+
 render();

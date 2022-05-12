@@ -1,6 +1,5 @@
 let hover_button = -1;
-let active_button = -1;
-let positions = new Array(6);
+let positions = new Array(7);
 for (let i = 0; i < 7; i++) positions[i] = 0;
 
 const cursor = curDot({
@@ -11,17 +10,8 @@ const cursor = curDot({
     background: '#fff'
 });
 
-function setHoverButton(num) { hover_button = num; }
-function setActiveButton(num) {
-    active_button = active_button === num? -1 : num;
-    for (let i = 0; i < 6; i++) {
-        let prefix = '>';
-        if (active_button !== -1) {
-            prefix = active_button === i? '+' : '-';
-        }
-        document.getElementById('bt' + i).innerText =
-            prefix + document.getElementById('bt' + i).innerText.slice(1);
-    }
+function setHoverButton(num) {
+    hover_button = num;
 }
 
 function animate_filter_buttons() {
@@ -29,18 +19,18 @@ function animate_filter_buttons() {
         let target_pos = hover_button === i ? 20 : 0;
         positions[i] += (target_pos - positions[i]) / 7;
     }
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 6; i++) {
         document.getElementById('bt' + i).style.paddingLeft = positions[i] + 'px';
     }
+    document.getElementById('about').style.paddingRight = positions[6] + 'px';
 }
 
-document.getElementById('bt6').addEventListener('click', () => {
-    cluster.array[0].position.z = 50;
-})
+document.getElementById('about').addEventListener('mouseenter', () => setHoverButton(6));
+document.getElementById('about').addEventListener('mouseleave', () => setHoverButton(-1));
 
-for (let i = 0; i < 7; i++) {
+for (let i = 0; i < 6; i++) {
     let element = document.getElementById('bt' + i);
     element.addEventListener('mouseenter', () => setHoverButton(i));
     element.addEventListener('mouseleave', () => setHoverButton(-1));
-    element.addEventListener('click', () => setActiveButton(i));
 }
+

@@ -16,7 +16,7 @@ class Pane {
 
     drawTitle() {
         this.ctx.fillStyle = "black";
-        this.ctx.font = 0.128 * this.height + "px texfont";
+        this.ctx.font = 0.096 * this.height + "px texfont";
         this.ctx.fillText(
             this.title,
             0.066 * this.width,
