@@ -88,8 +88,6 @@ function render() {
     clampCamera();
     animateCircles();
 
-    cluster.animate()
-
     animate_filter_buttons();
     document.getElementById("sidebar").style.opacity =
         ((camera.position.z * 0.1) - 1.4).toString();
