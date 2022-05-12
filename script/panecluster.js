@@ -207,10 +207,24 @@ class PaneCluster {
             }
         ];
 
+        let colors = [
+            "#CCC5AB",
+            "#CCABAB",
+            "#B7ABCE",
+            "#ABB4CC",
+            "#ABCCC7",
+            "#AFCCAB"
+        ];
+
         let divider_x = 0;
+        let color_id = 0;
+
 
         for (let i = 0; i < data.length; i++) {
-            if (data[i].divide) divider_x += 5;
+            if (data[i].divide) {
+                divider_x += 5;
+                color_id++;
+            }
             if (data[i].skip) continue;
 
             let x = Math.floor(i / 3) - 2;
@@ -218,7 +232,7 @@ class PaneCluster {
             let offset = x % 2 === 0? -2 : 2;
 
             new Pane(scene, data[i].title, data[i].desc,
-                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2, "#B7ABCE");
+                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2, colors[color_id]);
         }
     }
 }

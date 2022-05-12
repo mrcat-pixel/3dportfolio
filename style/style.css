@@ -44,6 +44,6 @@ body {
 }
 
 .ui-element {
-    filter: drop-shadow(0 0 10px black);
+    filter: drop-shadow(0 0 10px #131021);
     margin: 30px;
 }
