@@ -9,8 +9,8 @@ document.getElementById("viewport-contain").appendChild(renderer_element);
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight);
-camera.position.set(0, 0, 50);
-let camera_target = new THREE.Vector3(0, 0, 50);
+camera.position.set(120, 0, 75);
+let camera_target = new THREE.Vector3(120, 0, 75);
 scene.add(camera);
 
 document.getElementById('bt0').addEventListener('click', () => cameraShowSection(-10));

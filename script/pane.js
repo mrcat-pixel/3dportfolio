@@ -9,8 +9,8 @@ class Pane {
         this.ctx = this.canvas.getContext("2d");
     }
 
-    drawBg() {
-        this.ctx.fillStyle = "#B7ABCE";
+    drawBg(color) {
+        this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.width, this.height);
     }
 
@@ -49,7 +49,7 @@ class Pane {
         this.backpane.position.z += (this.targetz - this.backpane.position.z) / 7;
     }
 
-    constructor(scene, title, desc, x, y, z) {
+    constructor(scene, title, desc, x, y, z, color) {
         this.height = pane_resolution;
         this.width = 0.75 * this.height;
 
@@ -57,7 +57,7 @@ class Pane {
 
         this.createCanvas();
 
-        this.drawBg();
+        this.drawBg(color);
         this.drawTitle();
         this.drawDesc();
 

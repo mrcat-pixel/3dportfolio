@@ -43,6 +43,7 @@ body {
     right: 0;
 }
 
-.sidebar-element {
+.ui-element {
+    filter: drop-shadow(0 0 10px black);
     margin: 30px;
 }

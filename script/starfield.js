@@ -12,11 +12,11 @@ class Starfield {
     }
 
     constructor(scene) {
-        for (let i = 0; i < 500; i++) {
+        for (let i = 0; i < 50; i++) {
             this.makeSprite(scene,
                 (Math.random() * 1000 - 500),
                 (Math.random() * 1000 - 500),
-                (Math.random() * 1000 - 500),
+                (Math.random() * 200 - 500),
                 (Math.random() * 2 + 1)
             );
         }

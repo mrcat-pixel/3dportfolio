@@ -3,7 +3,8 @@ class Circle {
         const texture = new THREE.TextureLoader().load('texture/cloud.png');
         const spriteMat = new THREE.SpriteMaterial( {
             map: texture,
-            color: color
+            color: color,
+            dithering: true
         } );
         this.sprite = new THREE.Sprite( spriteMat );
         scene.add( this.sprite );

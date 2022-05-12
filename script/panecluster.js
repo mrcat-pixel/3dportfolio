@@ -218,7 +218,7 @@ class PaneCluster {
             let offset = x % 2 === 0? -2 : 2;
 
             new Pane(scene, data[i].title, data[i].desc,
-                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2);
+                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2, "#B7ABCE");
         }
     }
 }
