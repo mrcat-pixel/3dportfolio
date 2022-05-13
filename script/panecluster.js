@@ -72,7 +72,13 @@ class PaneCluster {
                     ""],
                 link: ""
             },
-            {   skip: true  },
+            {
+                title: "Gates of Hell",
+                desc: [ "Level background for a team project.",
+                    "Made entirely within",
+                    "16-bit Mega Drive limitations."],
+                link: ""
+            },
             {   skip: true, divide: true  },
             {
                 title: "compmath4",
@@ -218,6 +224,7 @@ class PaneCluster {
 
         let divider_x = 0;
         let color_id = 0;
+        let pic_id = 0;
 
         for (let i = 0; i < data.length; i++) {
             if (data[i].divide) {
@@ -232,7 +239,8 @@ class PaneCluster {
 
             new Pane(scene, data[i].title, data[i].desc,
                 x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2,
-                colors[color_id], i);
+                colors[color_id], pic_id);
+            pic_id++;
         }
     }
 }

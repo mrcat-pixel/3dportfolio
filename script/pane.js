@@ -25,6 +25,7 @@ class Pane {
     }
 
     drawDesc() {
+        this.ctx.fillStyle = "black";
         this.ctx.font = 0.032 * this.height + "px texfont";
         for ( let i = 0; i < this.desc.length; i ++ )
             this.ctx.fillText(
@@ -32,6 +33,12 @@ class Pane {
                 0.066 * this.width,
                 0.04 * this.height * i + 0.85 * this.height
             );
+    }
+
+    drawShadow() {
+        this.ctx.fillStyle = "#131021";
+        this.ctx.globalAlpha = 0.25;
+        this.ctx.fillRect(0.05 * this.width, 0.04 * this.height, 0.9 * this.width, 0.6 * this.height);
     }
 
     createMesh(scene, x, y, z) {
@@ -48,7 +55,7 @@ class Pane {
     createImageMesh(scene, x, y, z, imgId) {
         this.textureImg = new THREE.TextureLoader().load('../texture/cards/' + imgId + '.png');
         this.backpaneImg = new THREE.Mesh(
-            new THREE.PlaneGeometry(12, 10),
+            new THREE.PlaneGeometry(14.4, 12),
             new THREE.MeshBasicMaterial( { map: this.textureImg } )
         );
         this.backpaneImg.position.set(x, y+3.5, z + 3);
@@ -71,6 +78,7 @@ class Pane {
         this.drawBg(color);
         this.drawTitle();
         this.drawDesc();
+        this.drawShadow();
 
         this.createMesh(scene, x, y, z);
         this.createImageMesh(scene, x, y, z, imgId);
