@@ -46,7 +46,7 @@ class Pane {
     }
 
     createImageMesh(scene, x, y, z, imgId) {
-        this.textureImg = new THREE.TextureLoader().load('../cards/' + imgId + '.png');
+        this.textureImg = new THREE.TextureLoader().load('../texture/cards/' + imgId + '.png');
         this.backpaneImg = new THREE.Mesh(
             new THREE.PlaneGeometry(12, 10),
             new THREE.MeshBasicMaterial( { map: this.textureImg } )
