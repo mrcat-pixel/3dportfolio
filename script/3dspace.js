@@ -27,7 +27,8 @@ let circleArray = [
     new Circle(scene, -100, 600, 0x4e284b, 0, -0.005, 50),
     new Circle(scene, -300, 1000, 0x2D1A07, 5, 0.015, 200),
     new Circle(scene, -20, 100, 0x352651, 5, -0.02, 20)
-    ]
+];
+
 
 await document.fonts.load(0.128 * pane_resolution + 'px texfont');
 await document.fonts.load(0.032 * pane_resolution + 'px texfont');

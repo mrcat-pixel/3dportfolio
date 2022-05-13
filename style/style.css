@@ -1,18 +1,28 @@
 html {
     background: radial-gradient(black 25%, #131021 100%);
     color: white;
-}
-
-body {
-    margin: 0;
     font-family: 'texfont', sans-serif;
     font-size: 40px;
     cursor: none;
     user-select: none;
 }
 
+body {
+    margin: 0;
+}
+
 .filter-button {
     margin: 0;
+    image-rendering: high-quality;
+}
+
+.ui-element {
+    filter: drop-shadow(0 0 10px #131021);
+    margin: 30px;
+}
+
+#images-hidden {
+    display: none;
 }
 
 #logo-img {
@@ -41,9 +51,4 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-}
-
-.ui-element {
-    filter: drop-shadow(0 0 10px #131021);
-    margin: 30px;
 }

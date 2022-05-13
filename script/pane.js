@@ -45,15 +45,26 @@ class Pane {
         scene.add(this.backpane);
     }
 
+    createImageMesh(scene, x, y, z, imgId) {
+        this.textureImg = new THREE.TextureLoader().load('../cards/' + imgId + '.png');
+        this.backpaneImg = new THREE.Mesh(
+            new THREE.PlaneGeometry(12, 10),
+            new THREE.MeshBasicMaterial( { map: this.textureImg } )
+        );
+        this.backpaneImg.position.set(x, y+3.5, z + 3);
+        scene.add(this.backpaneImg);
+    }
+
     animate() {
         this.backpane.position.z += (this.targetz - this.backpane.position.z) / 7;
     }
 
-    constructor(scene, title, desc, x, y, z, color) {
+    constructor(scene, title, desc, x, y, z, color, imgId) {
         this.height = pane_resolution;
         this.width = 0.75 * this.height;
 
-        this.title = title; this.desc = desc;
+        this.title = title;
+        this.desc = desc;
 
         this.createCanvas();
 
@@ -62,6 +73,7 @@ class Pane {
         this.drawDesc();
 
         this.createMesh(scene, x, y, z);
+        this.createImageMesh(scene, x, y, z, imgId);
         this.targetz = z;
     }
 }

@@ -8,7 +8,6 @@ const cursor = curDot({
     zIndex: 200,
     diameter: 50,
     borderWidth: 0,
-    easing: 2,
     background: '#fff'
 });
 

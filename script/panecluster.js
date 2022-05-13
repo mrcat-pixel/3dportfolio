@@ -219,7 +219,6 @@ class PaneCluster {
         let divider_x = 0;
         let color_id = 0;
 
-
         for (let i = 0; i < data.length; i++) {
             if (data[i].divide) {
                 divider_x += 5;
@@ -232,7 +231,8 @@ class PaneCluster {
             let offset = x % 2 === 0? -2 : 2;
 
             new Pane(scene, data[i].title, data[i].desc,
-                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2, colors[color_id]);
+                x * 17 + divider_x, y * -22 + offset, Math.random() * 4 - 2,
+                colors[color_id], i);
         }
     }
 }
